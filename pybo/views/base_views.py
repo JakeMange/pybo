@@ -5,11 +5,13 @@ from django.db.models import Q, Count
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from ..models import Question
+import logging
+logger = logging.getLogger('pybo')
 
 
 # [21-12-15] views.py 파일 분리
 def index(request):
-    3/0
+    logger.info("INFO 레벨로 출력")
     # [21-12-03] pybo 목록 출력: 작성 날짜의 역순
     question_list = Question.objects.order_by('-create_date')
     context = {'question_list': question_list}
