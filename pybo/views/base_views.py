@@ -9,6 +9,7 @@ from ..models import Question
 
 # [21-12-15] views.py 파일 분리
 def index(request):
+    3/0
     # [21-12-03] pybo 목록 출력: 작성 날짜의 역순
     question_list = Question.objects.order_by('-create_date')
     context = {'question_list': question_list}
