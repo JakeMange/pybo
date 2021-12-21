@@ -116,7 +116,7 @@ LOGGING = {
             'style': '{',
         },
         'standard': {
-            'format': '%(asctime)s [%levelname)s] %(name)s: %(message)s'
+            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s',
         },
     },
     'handlers': {
@@ -137,18 +137,17 @@ LOGGING = {
         },
         'file': {
             'level': 'INFO',
-        }
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'mail_admins', 'file'],
-            'level': 'INFO',
             'filters': ['require_debug_false'],
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': BASE_DIR / 'logs/mysite.log',
             'maxBytes': 1024 * 1024 * 5,  # 5 MB
             'backupCount': 5,
             'formatter': 'standard',
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'mail_admins', 'file'],
         },
         'django.server': {
             'handlers': ['django.server'],
